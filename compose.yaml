@@ -1,0 +1,84 @@
+services:
+  vm_1:
+    build: .
+    networks:
+      vmnet:
+        ipv4_address: 172.4.4.2
+    hostname: vm1
+    volumes:
+      - ./vm_1/nginx:/etc/nginx:rw
+      - data-usr-0:/usr
+      - data-home-0:/home
+      - data-var-0:/var
+  vm_2:
+    build: .
+    networks:
+      vmnet:
+        ipv4_address: 172.4.4.3
+    hostname: vm2
+    volumes:
+      - ./vm_2/nginx:/etc/nginx:rw
+      - data-usr-1:/usr
+      - data-home-1:/home
+      - data-var-1:/var
+  vm_3:
+    build: .
+    networks:
+      vmnet:
+        ipv4_address: 172.4.4.4
+    hostname: vm3
+    volumes:
+      - ./vm_3/nginx:/etc/nginx:rw
+      - data-usr-2:/usr
+      - data-home-2:/home
+      - data-var-2:/var
+  vm_4:
+    build: .
+    networks:
+      vmnet:
+        ipv4_address: 172.4.4.5
+    hostname: vm4
+    volumes:
+      - ./vm_4/nginx:/etc/nginx:rw
+      - data-usr-3:/usr
+      - data-home-3:/home
+      - data-var-3:/var
+  vm_5:
+    build: .
+    networks:
+      vmnet:
+        ipv4_address: 172.4.4.6
+    hostname: vm5
+    volumes:
+      - ./vm_5/nginx:/etc/nginx:rw
+      - data-usr-4:/usr
+      - data-home-4:/home
+      - data-var-4:/var
+
+networks:
+  vmnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.4.4.0/24
+volumes:
+  data-usr-0:
+  data-home-0:
+  data-root-0:
+  data-var-0:
+  data-usr-1:
+  data-home-1:
+  data-root-1:
+  data-var-1:
+  data-usr-2:
+  data-home-2:
+  data-root-2:
+  data-var-2:
+  data-usr-3:
+  data-home-3:
+  data-root-3:
+  data-var-3:
+  data-usr-4:
+  data-home-4:
+  data-root-4:
+  data-var-4:
